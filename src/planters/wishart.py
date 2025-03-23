@@ -44,7 +44,7 @@ def generate_problem(s, m: int, device='cpu'):
     Generate Ising's prolems with known solutions s. 
     H(s) = -1/2 s^T J s
 
-    Attributes:
+    Args:
         s:              array of {-1, 1} of length n
         m:              hardness parameter
         batch_size:     number of generated problems
