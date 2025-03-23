@@ -31,12 +31,12 @@ def gauge_problems(s, J) -> None:
         J:      coupling matrices
     """
     masks = ((-s + 1)//2).bool()
-    for i in range(masks.shap[0]):
+    for i in range(masks.shape[0]):
         J[i, masks[i], ::] *= -1
         J[i, ::, masks[i]] *= -1
 
 
-def generate_problem(s, m: int, device='cpu'):
+def generate_problems(s, m: int, device='cpu'):
     r"""
     Generation of Ising problem using Wishart planted 
     solutions. 
