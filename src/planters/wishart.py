@@ -50,7 +50,7 @@ def generate_problems(s, m: int, device='cpu'):
         batch_size:     number of generated problems
     """
     batch_size, n = s.shape
-    W = torch.normal(mean=0, std=1, size=(batch_size, n,m), device=device)
+    W = torch.randn(size=(batch_size, n,m), device=device)
     J = (-1/2) *  W @ torch.transpose(W, 1, 2) 
     J -= torch.diag_embed(torch.diagonal(J, dim1=-2, dim2=-1))
     gauge_problems(s, J)
